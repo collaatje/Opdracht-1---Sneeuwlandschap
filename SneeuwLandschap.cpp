@@ -65,7 +65,7 @@ void SneeuwLandschap::draw()
 	maSetColor( 0xffffff );
 	maFillRect( 0, screenHeight - this->sneeuwHoogte, screenWidth, this->sneeuwHoogte );
 
-	//TODO: teken de sneeuwman
+	this->sneeuwMan->draw();
 
 	//TODO: teken alle sneeuwvlokken
 }
