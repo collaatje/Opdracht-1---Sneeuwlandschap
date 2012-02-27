@@ -47,10 +47,22 @@ void SneeuwLandschap::run( MAEvent event )
 			this->sneeuwMan->move( 6 );		//beweeg sneeuwman 6 pixels
 	}
 
+	// Restdeling doen om maximaal (screenWidth-10)px te genereren
+	int randX = rand() % (screenWidth-10);
 
-	//TODO: voeg een sneeuwvlok toe
+	//voeg een sneeuwvlok toe
+	sneeuwVlokArray.add(new SneeuwVlok(randX, 0));
 
-	//TODO: laat alle sneeuwvlokken vallen
+	//laat alle sneeuwvlokken vallen
+	for(int i=0; i < sneeuwVlokArray.size(); i++)
+	{
+		// roep de fall-methode aan met als parameter de yPositie van de grond/sneeuw
+		sneeuwVlokArray[i]->fall(screenHeight - this->sneeuwHoogte);
+
+		// Als de sneeuwvlok dood is, verwijder hem dan uit de array
+		if(sneeuwVlokArray[i]->isDead())
+			sneeuwVlokArray.remove(i);
+	}
 }
 
 
@@ -67,7 +79,11 @@ void SneeuwLandschap::draw()
 
 	this->sneeuwMan->draw();
 
-	//TODO: teken alle sneeuwvlokken
+	//teken alle sneeuwvlokken
+	for(int i=0; i < sneeuwVlokArray.size(); i++)
+	{
+		sneeuwVlokArray[i]->draw();
+	}
 }
 
 

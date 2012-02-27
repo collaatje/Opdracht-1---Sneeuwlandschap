@@ -8,7 +8,8 @@
 #ifndef SNEEUWLANDSCHAP_HPP_
 #define SNEEUWLANDSCHAP_HPP_
 
-
+//deze header hebben we nodig voor de functie rand()
+#include <mastdlib.h>
 #include <ma.h>
 #include <MAUtil/Vector.h>
 

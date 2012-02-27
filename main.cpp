@@ -17,8 +17,8 @@ extern "C" int MAMain()
 	//oneindige loop laat onze app in werking
 	while (TRUE)
 	{
-		//run met 1 frame per 100 ms
-		maWait(100);
+		//run met 1 frame per 40 ms
+		maWait(40);
 
 		//kijk of er events hebben plaatsgevonden, sla die info op in MAEvent event.
 		maGetEvent(&event);
