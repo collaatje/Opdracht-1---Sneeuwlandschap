@@ -28,6 +28,17 @@ SneeuwLandschap::SneeuwLandschap()
 	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte );
 }
 
+SneeuwLandschap::~SneeuwLandschap()
+{
+	delete sneeuwMan;
+
+	for(int i=0; i < sneeuwVlokArray.size(); i++)
+	{
+		delete sneeuwVlokArray[i];
+		sneeuwVlokArray.remove(i);
+	}
+}
+
 
 //wordt aangeroepen als er input is (druk op de toets, touch van scherm)
 void SneeuwLandschap::run( MAEvent event )
@@ -61,7 +72,10 @@ void SneeuwLandschap::run( MAEvent event )
 
 		// Als de sneeuwvlok dood is, verwijder hem dan uit de array
 		if(sneeuwVlokArray[i]->isDead())
+		{
+			delete sneeuwVlokArray[i];
 			sneeuwVlokArray.remove(i);
+		}
 	}
 }
 

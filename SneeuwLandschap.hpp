@@ -29,6 +29,7 @@ private:
 
 public:
 	SneeuwLandschap();
+	virtual ~SneeuwLandschap();
 	void draw();
 	void run( MAEvent event );
 };
